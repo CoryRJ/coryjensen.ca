@@ -1,0 +1,125 @@
+body {
+  margin: 2%;
+  background-image: url("../views/pictures/olymp_marble_d.png");
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 70%;
+  height: 98%;
+  padding: 1%;
+  margin: 0 auto;
+  border-style: solid;
+  border-color: black;
+}
+
+.name {
+  text-align: center;
+  font-size: 400%;
+  margin: 0%;
+  cursor: default;
+}
+
+.navi {
+  cursor: default;
+  padding: 0%;
+}
+
+.navi li {
+  display: inline-block;
+}
+
+.go_to {
+  border-style: solid;
+  border-width: 2px 0px 0px 0px;
+  padding: 4px 5px 0px 5px;
+}
+
+.go_to:hover {
+  border-width: 6px 0px 0px 0px;
+  padding: 0% 5px;
+}
+
+.textNothing {
+  padding: 0%;
+  margin: 0%;
+}
+
+.here {
+  border-style: solid;
+  border-width: 6px 0px 0px 0px;
+  padding: 0px 5px 0px 5px;
+}
+
+.bufferR {
+  float: left;
+  margin: 0% 14% 0% 0%;
+}
+
+.bufferM {
+  margin: 0%;
+}
+
+.bufferM1 {
+  float: right;
+  margin: 0%;
+}
+
+.bufferL {
+  float: right;
+  margin: 0% 0% 0% 14%;
+}
+
+.lnk {
+  text-decoration: none;
+  color: black;
+}
+
+.mainRow {
+  width: 100%;
+  padding: 1%;
+  margin: 2% auto 0% auto;
+}
+
+#wrapperDiv {
+  display: table;
+  margin: 0 auto;
+}
+
+#titleOfPage1 {
+  font-size: 250%;
+  text-align: center;
+  padding: 0%;
+  margin: 0%;
+}
+
+.mainText {
+  display: inline-block;
+  width: 40%;
+  padding: 0%;
+  margin: 5% 0% 5% 0%;
+  text-align: center;
+}
+
+#paragraph {
+  display: table;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.mainImg {
+  display: inline-block;
+  width: 20%;
+  height: auto;
+  padding: 0%;
+  margin: 0% 5%;
+  border-radius: 50%;
+}
+
+.mainImgR {
+  float: right;
+}
+
+.mainImgL {
+  float: left;
+}
