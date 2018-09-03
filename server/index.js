@@ -2,6 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const url = require('url');
 const path = require('path');
+const Router = require('router');
 
 const views = '../public/views/';
 const styles = '../public/styles/';
@@ -58,7 +59,7 @@ const server = http.createServer((req,res)=>{
             }
         });
     }
-    else if((filename == 'resume')||
+    else if((filename == 'resume')||(filename == 'projects')||
     (filename == 'hobbies')||(filename == 'contact')||(filename == ''))
     {
         fs.readFile(views + filename + '/index.html', (err, html) => {
@@ -88,6 +89,45 @@ const server = http.createServer((req,res)=>{
                 res.end();
             }
         });
+    }
+    else if((filename == 'data.txt')&&(req.method == 'POST'))
+    {
+		let body ='';
+		req.on('data',chunk=>{
+			body += chunk.toString();
+		});
+		req.on('end',() => {
+			var fileN = '' + Math.random();
+			var child_process = require('child_process');
+			var out;
+			try
+			{
+				var store ='';
+				var d = JSON.parse(body);
+				for(var i =0; i < 784; i++)
+				{
+					store += d[i] +"\n";
+				}
+				fs.writeFileSync(fileN,store, (err) => {});
+				out = child_process.execSync('./a.out '+fileN);
+				child_process.exec('rm '+fileN, function (err, stdout, stderr) {});
+			}
+			catch(e)
+			{
+				child_process.exec('rm '+fileN, function (err, stdout, stderr) {
+				});
+				console.log(e);
+			}
+			res.on('error', (err) => {
+				console.errer(err);
+			});
+            res.statusCode = 200;
+            res.readyState = 4;
+            res.setHeader('Content-type','text/html');
+			res.write(JSON.stringify(out[0]-48));
+			//res.write("Hello!");
+			res.end();
+		});
     }
     else
     {

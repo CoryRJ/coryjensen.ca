@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Cory Jensen</title>
+	<link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body onload='start()'>
+	<script src='myScript.js'></script>
+	<header>
+		<h1 class='name'>Cory Jensen</h1>
+		<nav>
+			<ul class='navi'>
+				<a class="lnk"href="./" ><li class='buffer go_to'> <p class='textNothing'>Home</p> </li></a>
+				<a class="lnk"href="./resume"> <li class='buffer go_to'><p class='textNothing'>Resume</p></li> </a>
+				<a class="lnk"href="./projects"> <li class='buffer here'><p class='textNothing'>Projects</p></li> </a>
+				<a class="lnk"href="./hobbies"> <li class='buffer go_to'><p class='textNothing'>Hobbies</p> </li></a>
+				<a class="lnk"href="./contact"> <li class='buffer go_to'><p class='textNothing'>Contact</p> </li></a>
+			</ul>
+		</nav>
+	</header>
+	<br>
+	<br>
+	<div id='open_all'>
+		<div class='textWrapper open_close' onclick='open_all()'>
+			<p id='openAllIcon'>Open All</p>
+		</div>
+		<div class='textWrapper open_close' onclick='close_all()'>
+			<p id='openAllIcon'>Close All</p>
+		</div>
+	</div>
+	<br>
+	<br>
+	<div class='wrapper_hide' id='wrapper_1' onclick='open_close(this.id)'>
+		<div class='textWrapper'>
+			<p class='textIcon'>MNIST Neural Network</p>
+		</div>
+	</div>
+	<div class='hidden_text' id='hidden_1'>
+		<div class='table'>
+			<div class='table_row'>
+				<div class='table_cell'>
+					<h4>Rules:</h4>
+					<p>Draw a single digit number</p>
+					<p>Must be centred</p>
+					<p>Must not be too big</p>
+					<p>Must not be too small</p>
+					<p>The why of these rules is explained bellow.</p>
+				</div>
+				<div class='table_cell'>
+					<canvas id='myCan' width=280 height=280></canvas>
+					<button id='c' class='mnist_button' onclick='send()'>Send</button>
+					<button id='clear' class='mnist_button' onclick='clear_screen()'>Clear</button>
+				</div>
+				<div class='table_cell'>
+					<p class='res'>Result</p>
+					<p id='result' class='res'></p>
+				</div>
+			</div>
+			<div class='table_row'>
+				<div class='table_cell'>
+					<h4>Why the rules?</h4>
+					<p>This is mostly do to the dataset that was used.
+					The MNIST dataset of handwritten digits has all of
+					its numbers centred and almost filling the container.
+					This means that since my NN just trained off of this
+					raw data, any number, even if drawn correctly, that
+				does not also follow this pattern will most likely not be
+					recognized.
+					</br> For example, if you draw a small zero in
+					the centre of the container, it will most likely
+					register it as a nine. This is because all the zeros
+					in the dataset are much bigger, somewhat filling
+					the container, whereas you can view a nine as a 
+					small zero and a one combined, hence
+					my NN will recognize a small zero as more likely 
+					pertaining to a nine than a zero.
+					</br> Another example is drawing a nine very big.
+					Looking at the images in the dataset, most nines
+					that are drawn do not go to the very top of the
+					container. This means that if you draw a nine as
+					such, my NN wont have any idea what to do with the
+					top of the nine. If you draw a nine and cut the top
+					half of its loop off, what do you have? A four.
+					</br> Similar examples could be found for many
+					numbers, this is all just variation based off of the
+					training dataset that I used. There are some ways
+					around some of the rules, such as me manually
+					centring your drawing, but I have not done so.
+					</p>
+				</div>
+			</div>
+			<div class='table_row'>
+				<div class='table_cell'>
+					<h4>How does it work?</h4>
+					<p>This uses the classic gradient descent algorithm,
+					backpropagation.</br> I coded this in such a way
+					that was intuitive for me as it was my first time
+					tackling any problem of this kind. Instead of doing
+					matrix multiplication, I encoded my NN in a way similar
+					to how you would encode a simulation of hookes law. That
+					is, I had a node and weight structure. To do forward
+					propagation, I looped through all the first set of
+					weights, summing the weight and node multiplication
+					out into the nodes to the right of that weight, I
+					then looped over the nodes applying its activation
+				function and bias. I repeated this process to the end of the
+					NN. This is very much not the fastest method to do this,
+					but for my purposes, a small fully connected NN with
+					784 inputs, 800 middle layer nodes and 10 output nodes,
+					it was more than sufficient. Backpropagation was
+					done in a similar manner but in reverse, applying
+					and summing the respective derivatives where it applied.
+					Updating was done after a specific mini batch of data
+					was completed.</br>
+					I implemented ADAM and Momentum optimizations, these
+					both seemed to speed up gradient descent by a fair
+					amount. Interestingly, for my implementation they
+					were both similar in speeds because ADAM required
+					more multiplication per loop. ADAM, per cycle, converged
+					faster than Momentum, but momentum was just faster
+					to compute.</p>
+				</div>
+			</div>
+			<div class='table_row'>
+				<div class='table_cell'>
+					<h4></h4>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

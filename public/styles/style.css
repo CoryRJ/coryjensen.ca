@@ -2,12 +2,31 @@
   margin: 0% auto;
   padding: 0%;
 }
+.mnist_button {
+	width: 49.25%;
+	display: inline-block;
+}
+.res {
+	font-size: 50px;
+	padding: 0%;
+	margin: 0% 0% 65px 0%;
+	text-align: center;
+}
 
 .open_close {
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.8);
   border-style: solid;
   cursor: pointer;
+}
+#myCan {
+	width: 280;
+	height: 280;
+	padding-left: 0;
+	padding-right: 0;
+	margin: 0 auto 5px auto;
+	display: block;
+	border-style: solid;
 }
 
 #open_all {
@@ -141,6 +160,8 @@ header {
 
 .navi {
   cursor: default;
+  text-align: center;
+  list-style: inside;
   padding: 0%;
 }
 
@@ -170,23 +191,8 @@ header {
   padding: 0px 5px 0px 5px;
 }
 
-.bufferR {
-  float: left;
-  margin: 0% 14% 0% 0%;
-}
-
-.bufferM {
-  margin: 0%;
-}
-
-.bufferM1 {
-  float: right;
-  margin: 0%;
-}
-
-.bufferL {
-  float: right;
-  margin: 0% 0% 0% 14%;
+.buffer {
+  margin: 0% 1%;
 }
 
 .lnk {
