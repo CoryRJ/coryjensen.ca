@@ -103,9 +103,9 @@
 					is, I had a node and weight structure. To do forward
 					propagation, I looped through all the first set of
 					weights, summing the weight and node multiplication
-					out into the nodes to the right of that weight, I
+					out into the node to the right of that weight, I
 					then looped over the nodes applying its activation
-				function and bias. I repeated this process to the end of the
+				bias and function. I repeated this process to the end of the
 					NN. This is very much not the fastest method to do this,
 					but for my purposes, a small fully connected NN with
 					784 inputs, 800 middle layer nodes and 10 output nodes,
@@ -118,14 +118,30 @@
 					both seemed to speed up gradient descent by a fair
 					amount. Interestingly, for my implementation they
 					were both similar in speeds because ADAM required
-					more multiplication per loop. ADAM, per cycle, converged
+				more multiplications per loop. ADAM, per cycle, converged
 					faster than Momentum, but momentum was just faster
 					to compute.</p>
 				</div>
 			</div>
 			<div class='table_row'>
 				<div class='table_cell'>
-					<h4></h4>
+					<h4>Overall:</h4>
+					<p>To the right you will see the results of the NN above
+					on the 10,000 test samples from the MNIST dataset. I was
+					unable to get it as high as the ones listed on the MNIST
+					website, which were greater than 99%, but I still consider
+					this project a success - I left it with an understanding
+					of not only backpropagation but with a greater knowledge
+					of how servers send information to and from a website.
+					</br>This NN was coded using C++.</br>
+					To see the code for this project, and my website,
+					go to my <a href="https://github.com/cory67/coryjensen.ca">git</a>. Its in the server directory.</p>
+				</div>
+				<div class='table_cell'>
+					<img src="pictures/nn_final_data.png" alt="final statistical data for the NN used above">
+				</div>
+				<div class='table_cell'>
+					<p>To come: imagine of all the wrong numbers from the MNIST test set.</p>
 				</div>
 			</div>
 		</div>

@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 	}
 	file.close();
 
-	Nn aNet("98.40.txt");
+	Nn aNet("98.28.txt");
 	for(int i = 0; i < 10; i++)
 	{
 		result[i]=0;

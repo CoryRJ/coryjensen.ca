@@ -44,7 +44,7 @@ const server = http.createServer((req,res)=>{
              }
         });
     }
-    else if((filename == 'hiking.jpg')||(filename == 'olymp_marble_d.png'))
+    else if((filename == 'hiking.jpg')||(filename == 'nn_final_data.png'))
     {
         fs.readFile(pictures + filename, (err, data) => {
             if(err)
