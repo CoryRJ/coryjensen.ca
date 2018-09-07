@@ -2,7 +2,6 @@ const http = require('http');
 const fs = require('fs');
 const url = require('url');
 const path = require('path');
-const Router = require('router');
 
 const views = '../public/views/';
 const styles = '../public/styles/';
