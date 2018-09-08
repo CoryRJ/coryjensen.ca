@@ -43,7 +43,7 @@ const server = http.createServer((req,res)=>{
              }
         });
     }
-    else if((filename == 'hiking.jpg')||(filename == 'nn_final_data.png'))
+    else if((filename == 'hiking.jpg')||(filename == 'IMAG1086.jpg')||(filename=="nn_final_data.png"))
     {
         fs.readFile(pictures + filename, (err, data) => {
             if(err)

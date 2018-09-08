@@ -61,30 +61,33 @@
 			<div class='table_row'>
 				<div class='table_cell'>
 					<h4>Why the rules?</h4>
-					<p>This is mostly do to the dataset that was used.
+					<p>This is mostly due to the dataset that was used.
 					The MNIST dataset of handwritten digits has all of
 					its numbers centred and almost filling the container.
 					This means that since my NN just trained off of this
-					raw data, any number, even if drawn correctly, that
-				does not also follow this pattern will most likely not be
+					raw data, any number that does not follow this pattern
+					 - even if drawn correctly - will most likely not be
 					recognized.
+					</br>
 					</br> For example, if you draw a small zero in
-					the centre of the container, it will most likely
-					register it as a nine. This is because all the zeros
+					the centre of the container, it will most likely be
+					registered as a nine. This is because all the zeros
 					in the dataset are much bigger, somewhat filling
 					the container, whereas you can view a nine as a 
-					small zero and a one combined, hence
+					small zero and a one combined. Hence,
 					my NN will recognize a small zero as more likely 
 					pertaining to a nine than a zero.
-					</br> Another example is drawing a nine very big.
+					</br>
+					</br> Another example is drawing a very large nine.
 					Looking at the images in the dataset, most nines
 					that are drawn do not go to the very top of the
 					container. This means that if you draw a nine as
 					such, my NN wont have any idea what to do with the
 					top of the nine. If you draw a nine and cut the top
 					half of its loop off, what do you have? A four.
+					</br>
 					</br> Similar examples could be found for many
-					numbers, this is all just variation based off of the
+					numbers; this is all just variation based off of the
 					training dataset that I used. There are some ways
 					around some of the rules, such as me manually
 					centring your drawing, but I have not done so.
@@ -94,26 +97,29 @@
 			<div class='table_row'>
 				<div class='table_cell'>
 					<h4>How does it work?</h4>
-					<p>This uses the classic gradient descent algorithm,
-					backpropagation.</br> I coded this in such a way
-					that was intuitive for me as it was my first time
-					tackling any problem of this kind. Instead of doing
-					matrix multiplication, I encoded my NN in a way similar
-					to how you would encode a simulation of hookes law. That
-					is, I had a node and weight structure. To do forward
+					<p>This NN uses the classic gradient descent algorithm:
+					backpropagation.</br> I tried to code this in a way that
+					was intuitive for me as it was my first time
+					tackling a problem of this kind. Instead of doing
+					matrix multiplication, I encoded my NN similarly
+					to how you would encode a simulation of hookes law -
+					by having a node and weight structure.
+					</br> </br>
+					To do forward
 					propagation, I looped through all the first set of
 					weights, summing the weight and node multiplication
 					out into the node to the right of that weight, I
-					then looped over the nodes applying its activation
-				bias and function. I repeated this process to the end of the
-					NN. This is very much not the fastest method to do this,
-					but for my purposes, a small fully connected NN with
-					784 inputs, 800 middle layer nodes and 10 output nodes,
-					it was more than sufficient. Backpropagation was
-					done in a similar manner but in reverse, applying
+					then looped over the nodes applying its bias and
+			 activation function. I repeated this process to the end of the
+					NN. While this is not the fastest method,
+					it was more that sufficient with a small
+					fully connected NN with
+					784 inputs, 800 middle layer nodes and 10 output nodes.
+					</br></br>Backpropagation was
+					done in a similar manner but in reverse, by applying
 					and summing the respective derivatives where it applied.
 					Updating was done after a specific mini batch of data
-					was completed.</br>
+					was completed.</br></br>
 					I implemented ADAM and Momentum optimizations, these
 					both seemed to speed up gradient descent by a fair
 					amount. Interestingly, for my implementation they
@@ -129,13 +135,15 @@
 					<p>To the right you will see the results of the NN above
 					on the 10,000 test samples from the MNIST dataset. I was
 					unable to get it as high as the ones listed on the MNIST
-					website, which were greater than 99%, but I still consider
-					this project a success - I left it with an understanding
-					of not only backpropagation but with a greater knowledge
+					website, which were greater than 99%.
+					However, I still consider
+					this project a success since I gained an understanding
+					of backpropagation and a greater knowledge
 					of how servers send information to and from a website.
 					</br>This NN was coded using C++.</br>
 					To see the code for this project, and my website,
-					go to my <a href="https://github.com/cory67/coryjensen.ca">git</a>. Its in the server directory.</p>
+					go to my <a href="https://github.com/cory67/coryjensen.ca">git</a>.
+					This code for this NN is in the server directory.</p>
 				</div>
 				<div class='table_cell'>
 					<img src="pictures/nn_final_data.png" alt="final statistical data for the NN used above">
