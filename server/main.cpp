@@ -49,6 +49,7 @@ int main(int argc, char *argv[])
 			big = k;
 	}
 	cout << "" << big << endl;
+	aNet.destroy();
 	free(result);
 	return 0;
 }

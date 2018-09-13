@@ -4,7 +4,6 @@
 #include <string>
 class Nn
 {
-public:
 	int numLayers;
 	int seed = 17093;
 	float (*error)(float, float,float);

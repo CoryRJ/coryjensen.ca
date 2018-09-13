@@ -417,6 +417,34 @@ void Nn::setLearnRate(float lr)
 	learning_rate = lr;
 }
 
+void Nn::destroy()
+{
+	node *aNode;
+	node *spareN;
+	weight *aWeight;
+	weight *spareW;
+	for(int i = numLayers-2; i > -1; i--)
+	{
+		aWeight = weights[i];
+		while(aWeight != NULL)
+		{
+			spareW = aWeight;
+			aWeight = aWeight->n;
+			free(spareW);
+		}
+	}
+	for(int i = numLayers-1; i > -1; i--)
+	{
+		aNode = nodes[i];
+		while(aNode != NULL)
+		{
+			spareN = aNode->n;
+			aNode = aNode->n;
+			free(spareN);
+		}
+	}
+}
+
 void Nn::save(std::string aFile)
 {
 	ofstream myfile;
